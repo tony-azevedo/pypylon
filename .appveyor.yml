@@ -31,7 +31,8 @@ environment:
 
 install:
   # Install an outdated version of readme_renderer because it is the last one with python 3.4 support (https://github.com/pypa/readme_renderer/releases/tag/25.0)
-  - "%PYTHON%\\python.exe -m pip install readme_renderer==24.0"
+  # Install setuptools >= 38.6 because this version introduced long_description_content_type which is required by current pypi
+  - "%PYTHON%\\python.exe -m pip install \"readme_renderer==24.0\" \"setuptools>=38.6.0\""
 
   # We need wheel installed to build wheels
   - "%PYTHON%\\python.exe -m pip install wheel twine"
