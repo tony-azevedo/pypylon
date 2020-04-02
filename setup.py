@@ -261,6 +261,7 @@ class BuildSupport(object):
                 # release build -> return as is
                 return git_version
             if m_dev:
+                return "%s" % (m_dev.group(1),)
                 # development build
                 return "%s.dev%s" % (m_dev.group(1), m_dev.group(2) or 0)
 
