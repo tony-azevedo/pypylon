@@ -26,6 +26,8 @@ environment:
     - PYTHON: "C:\\Python36-x64"
     - PYTHON: "C:\\Python37"
     - PYTHON: "C:\\Python37-x64"
+    - PYTHON: "C:\\Python38"
+    - PYTHON: "C:\\Python38-x64"
 
 install:
   # Install an outdated version of pygments because it is the last one with python 3.4 support (https://github.com/pypa/readme_renderer/releases/tag/25.0)
