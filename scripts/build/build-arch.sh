@@ -46,12 +46,13 @@ PYLON_ARCH=""
 PYLON=""
 
 BUILD_DISTRO="debian"
-if [[ $PLATFORM_TAG =~ manylinux* ]]; then
+# nasty hack: manylinux2014_armv7l is built using debian because there is currently no quay.io/pypa/manylinux2014_armv7l docker image
+if [[ $PLATFORM_TAG =~ manylinux* && $PLATFORM_TAG != "manylinux2014_armv7l" ]]; then
     BUILD_DISTRO="manylinux"
 fi
 
-# nasty hack: manylinux2014_armv7l is built using debian because there is currently no quay.io/pypa/manylinux2014_armv7l docker image
-if [ $BUILD_DISTRO = "debian" || $PLATFORM_TAG = "manylinux2014_armv7l" ]; then
+
+if [ $BUILD_DISTRO = "debian" ]; then
 
     #Note: Be careful when changing the base image. Not every image is available for every architecture.
     case $ABI_TAG in
