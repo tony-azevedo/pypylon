@@ -20,7 +20,8 @@ RUN if cat /etc/debian_version | grep -q "8\." ; then \
 
 RUN apt-get update && apt-get install -y dnsutils
 
-RUN pip install wheel
+RUN pip install wheel auditwheel
+
 #build a new swig
 RUN mkdir /build && \
     cd /build && \
