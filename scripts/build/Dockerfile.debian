@@ -17,8 +17,11 @@ RUN if cat /etc/debian_version | grep -q "8\." ; then \
         apt-get -o Acquire::Check-Valid-Until=false update; \
     fi
 
+# auditwheel requires patchelf
+RUN apt-get update && apt-get install -y \
+    patchelf \
+    && rm -rf /var/lib/apt/lists/*
 
-RUN apt-get update && apt-get install -y dnsutils
 
 RUN pip install wheel auditwheel
 
